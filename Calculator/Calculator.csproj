@@ -60,6 +60,7 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="core\Memory.cs" />
+    <Compile Include="core\OperatorType.cs" />
     <Compile Include="utils\ArithmeticCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

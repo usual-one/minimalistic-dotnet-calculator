@@ -1,0 +1,8 @@
+enum OperatorType {
+    ADDITION,
+    SUBTRACTION,
+    MULTIPLICATION,
+    DIVISION,
+    INVERSION,
+    SQUAREROOT
+}
