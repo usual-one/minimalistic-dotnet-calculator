@@ -2,7 +2,7 @@
 
 Simple .NET Core calculator for BMSTU APL course
 
-# Used languages, libraries & frameworks
+### Used languages, libraries & frameworks
 
 This project uses:
 - C#
