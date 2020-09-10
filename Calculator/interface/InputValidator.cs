@@ -36,8 +36,8 @@ public class InputValidator
 
     public string ClearCharacter()
     {
-        value_ = value_.TrimEnd(value_[value_.Length - 1]);
-        if (value_.Length == 0 || value_ == negativeSign.ToString())
+        value_ = value_.Remove(value_.Length - 1, 1);
+        if (value_.Length == 0 || value_ == negativeSign)
         {
             ClearInput();
         } 

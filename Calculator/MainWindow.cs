@@ -22,6 +22,8 @@ public partial class MainWindow : Gtk.Window
         this.NineButton.Clicked += new global::System.EventHandler(this.AppendCharacter);
         this.ZeroButton.Clicked += new global::System.EventHandler(this.AppendCharacter);
         this.DotButton.Clicked += new global::System.EventHandler(this.AppendCharacter);
+
+        this.DelButton.Clicked += new global::System.EventHandler(this.RemoveCharacter);
     }
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -33,6 +35,12 @@ public partial class MainWindow : Gtk.Window
     protected void AppendCharacter(object sender, EventArgs a)
     {
         string newText = inputValidator.Validate((sender as Button).Label);
+        this.MainOutput.Text = newText;
+    }
+
+    protected void RemoveCharacter(object sender, EventArgs a)
+    {
+        string newText = inputValidator.ClearCharacter();
         this.MainOutput.Text = newText;
     }
 }
