@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/Calculator.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="350 338">
+  <widget class="Gtk.Window" id="MainWindow" design-size="350 342">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Calculator</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -91,9 +91,12 @@
                     <property name="MemberName" />
                     <property name="Spacing">6</property>
                     <child>
-                      <widget class="Gtk.Label" id="MCLabel">
+                      <widget class="Gtk.Button" id="MCButton">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">MC</property>
+                        <property name="CanFocus">True</property>
+                        <property name="Type">TextOnly</property>
+                        <property name="Label" translatable="yes">MC</property>
+                        <property name="UseUnderline">True</property>
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -103,9 +106,12 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="MSLabel">
+                      <widget class="Gtk.Button" id="MSButton">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">MS</property>
+                        <property name="CanFocus">True</property>
+                        <property name="Type">TextOnly</property>
+                        <property name="Label" translatable="yes">MS</property>
+                        <property name="UseUnderline">True</property>
                       </widget>
                       <packing>
                         <property name="Position">1</property>
@@ -115,9 +121,12 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="MRLabel">
+                      <widget class="Gtk.Button" id="MRButton">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">MR</property>
+                        <property name="CanFocus">True</property>
+                        <property name="Type">TextOnly</property>
+                        <property name="Label" translatable="yes">MR</property>
+                        <property name="UseUnderline">True</property>
                       </widget>
                       <packing>
                         <property name="Position">2</property>
@@ -575,7 +584,7 @@
                         <property name="MemberName" />
                         <property name="Spacing">5</property>
                         <child>
-                          <widget class="Gtk.Button" id="InverseButton">
+                          <widget class="Gtk.Button" id="InvertButton">
                             <property name="MemberName" />
                             <property name="WidthRequest">50</property>
                             <property name="HeightRequest">50</property>

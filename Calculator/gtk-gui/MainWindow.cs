@@ -21,11 +21,11 @@ public partial class MainWindow
 
 	private global::Gtk.HBox hbox2;
 
-	private global::Gtk.Label MCLabel;
+	private global::Gtk.Button MCButton;
 
-	private global::Gtk.Label MSLabel;
+	private global::Gtk.Button MSButton;
 
-	private global::Gtk.Label MRLabel;
+	private global::Gtk.Button MRButton;
 
 	private global::Gtk.Alignment alignment1;
 
@@ -87,7 +87,7 @@ public partial class MainWindow
 
 	private global::Gtk.VBox OperationsRightBox;
 
-	private global::Gtk.Button InverseButton;
+	private global::Gtk.Button InvertButton;
 
 	private global::Gtk.Button SquareRootButton;
 
@@ -158,29 +158,35 @@ public partial class MainWindow
 		this.hbox2.Name = "hbox2";
 		this.hbox2.Spacing = 6;
 		// Container child hbox2.Gtk.Box+BoxChild
-		this.MCLabel = new global::Gtk.Label();
-		this.MCLabel.Name = "MCLabel";
-		this.MCLabel.LabelProp = global::Mono.Unix.Catalog.GetString("MC");
-		this.hbox2.Add(this.MCLabel);
-		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.MCLabel]));
+		this.MCButton = new global::Gtk.Button();
+		this.MCButton.CanFocus = true;
+		this.MCButton.Name = "MCButton";
+		this.MCButton.UseUnderline = true;
+		this.MCButton.Label = global::Mono.Unix.Catalog.GetString("MC");
+		this.hbox2.Add(this.MCButton);
+		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.MCButton]));
 		w6.Position = 0;
 		w6.Expand = false;
 		w6.Fill = false;
 		// Container child hbox2.Gtk.Box+BoxChild
-		this.MSLabel = new global::Gtk.Label();
-		this.MSLabel.Name = "MSLabel";
-		this.MSLabel.LabelProp = global::Mono.Unix.Catalog.GetString("MS");
-		this.hbox2.Add(this.MSLabel);
-		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.MSLabel]));
+		this.MSButton = new global::Gtk.Button();
+		this.MSButton.CanFocus = true;
+		this.MSButton.Name = "MSButton";
+		this.MSButton.UseUnderline = true;
+		this.MSButton.Label = global::Mono.Unix.Catalog.GetString("MS");
+		this.hbox2.Add(this.MSButton);
+		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.MSButton]));
 		w7.Position = 1;
 		w7.Expand = false;
 		w7.Fill = false;
 		// Container child hbox2.Gtk.Box+BoxChild
-		this.MRLabel = new global::Gtk.Label();
-		this.MRLabel.Name = "MRLabel";
-		this.MRLabel.LabelProp = global::Mono.Unix.Catalog.GetString("MR");
-		this.hbox2.Add(this.MRLabel);
-		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.MRLabel]));
+		this.MRButton = new global::Gtk.Button();
+		this.MRButton.CanFocus = true;
+		this.MRButton.Name = "MRButton";
+		this.MRButton.UseUnderline = true;
+		this.MRButton.Label = global::Mono.Unix.Catalog.GetString("MR");
+		this.hbox2.Add(this.MRButton);
+		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.MRButton]));
 		w8.Position = 2;
 		w8.Expand = false;
 		w8.Fill = false;
@@ -524,15 +530,15 @@ public partial class MainWindow
 		this.OperationsRightBox.Name = "OperationsRightBox";
 		this.OperationsRightBox.Spacing = 5;
 		// Container child OperationsRightBox.Gtk.Box+BoxChild
-		this.InverseButton = new global::Gtk.Button();
-		this.InverseButton.WidthRequest = 50;
-		this.InverseButton.HeightRequest = 50;
-		this.InverseButton.CanFocus = true;
-		this.InverseButton.Name = "InverseButton";
-		this.InverseButton.UseUnderline = true;
-		this.InverseButton.Label = global::Mono.Unix.Catalog.GetString("1/x");
-		this.OperationsRightBox.Add(this.InverseButton);
-		global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.InverseButton]));
+		this.InvertButton = new global::Gtk.Button();
+		this.InvertButton.WidthRequest = 50;
+		this.InvertButton.HeightRequest = 50;
+		this.InvertButton.CanFocus = true;
+		this.InvertButton.Name = "InvertButton";
+		this.InvertButton.UseUnderline = true;
+		this.InvertButton.Label = global::Mono.Unix.Catalog.GetString("1/x");
+		this.OperationsRightBox.Add(this.InvertButton);
+		global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.InvertButton]));
 		w38.Position = 0;
 		w38.Expand = false;
 		w38.Fill = false;

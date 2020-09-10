@@ -59,6 +59,7 @@
     <Compile Include="MainWindow.cs" />
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="core\ExecutorState.cs" />
     <Compile Include="core\Memory.cs" />
     <Compile Include="core\OperatorType.cs" />
     <Compile Include="core\OperationExecutor.cs" />

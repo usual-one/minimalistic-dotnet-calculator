@@ -3,6 +3,8 @@ using System.Linq;
 public class InputValidator
 {
     private string value_;
+    
+    private static string decimalSeparator = ".";
 
     private static string negativeSign = "-";
 
@@ -50,9 +52,53 @@ public class InputValidator
         return Value;
     }
 
+    public static OperatorType ConvertToOperatorType(string operatorText)
+    {
+        if (operatorText == "+")
+        {
+            return OperatorType.Addition;
+        }
+        else if (operatorText == "-")
+        {
+            return OperatorType.Subtraction;
+        }
+        else if (operatorText == "×")
+        {
+            return OperatorType.Multiplication;
+        }
+        else if (operatorText == "÷")
+        {
+            return OperatorType.Division;
+        }
+        else if (operatorText == "1/x")
+        {
+            return OperatorType.Inversion;
+        }
+        else if (operatorText == "√")
+        {
+            return OperatorType.SquareRoot;
+        } 
+
+        // TODO: make exception
+        throw new System.Exception();
+    }
+
+    public double getInput()
+    {
+        if (value_.EndsWith(decimalSeparator))
+        {
+            value_.TrimEnd(decimalSeparator.ToCharArray());
+        }
+        return double.Parse(Value, System.Globalization.CultureInfo.InvariantCulture);
+    }
+
+    public bool HasDefault()
+    {
+        return Value == defaultValue;
+    }
+
     public string Validate(string input)
     {
-        string decimalSeparator = ".";
         string[] digits = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
         if (input == decimalSeparator)
@@ -77,15 +123,6 @@ public class InputValidator
             }
             return Value;
         } 
-
-        if (input == negativeSign)
-        {
-            if (value_ == defaultValue)
-            {
-                value_ = negativeSign;    
-                return Value;
-            }
-        }
         
         if (digits.Contains(input))
         {

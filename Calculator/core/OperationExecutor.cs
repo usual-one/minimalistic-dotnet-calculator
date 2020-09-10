@@ -6,11 +6,13 @@ public class OperationExecutor
 
     private OperatorType? operator_; 
 
+    private ExecutorState state;
+
     public double? FirstOperand
     {
         get
         {
-            return firstOperand.Value;
+            return firstOperand;
         }
         set
         {
@@ -22,7 +24,7 @@ public class OperationExecutor
     {
         get
         {
-            return secondOperand.Value;
+            return secondOperand;
         }
         set
         {
@@ -34,13 +36,26 @@ public class OperationExecutor
     {
         get
         {
-            return operator_.Value;
+            return operator_;
         }
         set
         {
             operator_ = value;
+            State = ExecutorState.OperatorGot;
         }
     } 
+
+    public ExecutorState State
+    {
+        get
+        {
+            return state;
+        }
+        set
+        {
+            state = value;
+        }
+    }
 
     public OperationExecutor()
     {
@@ -49,6 +64,8 @@ public class OperationExecutor
 
     public double? Calculate()
     {
+        State = ExecutorState.ResultCalculated;
+
         if (FirstOperand == null)
         {
             // TODO: throw exception
@@ -79,6 +96,7 @@ public class OperationExecutor
         FirstOperand = null;
         SecondOperand = null;
         Operator = null;
+        State = ExecutorState.FirstOperandInput;
     }
 
     public void ClearLastOperand()
