@@ -87,7 +87,7 @@ public partial class MainWindow
 
 	private global::Gtk.VBox OperationsRightBox;
 
-	private global::Gtk.Button InvverseButton;
+	private global::Gtk.Button InverseButton;
 
 	private global::Gtk.Button SquareRootButton;
 
@@ -122,7 +122,6 @@ public partial class MainWindow
 		// Container child OutputBox.Gtk.Box+BoxChild
 		this.SecondaryOutput = new global::Gtk.Label();
 		this.SecondaryOutput.Name = "SecondaryOutput";
-		this.SecondaryOutput.LabelProp = global::Mono.Unix.Catalog.GetString("1+2");
 		this.OutputBox.Add(this.SecondaryOutput);
 		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.OutputBox[this.SecondaryOutput]));
 		w2.Position = 1;
@@ -131,7 +130,7 @@ public partial class MainWindow
 		// Container child OutputBox.Gtk.Box+BoxChild
 		this.MainOutput = new global::Gtk.Label();
 		this.MainOutput.Name = "MainOutput";
-		this.MainOutput.LabelProp = global::Mono.Unix.Catalog.GetString("3");
+		this.MainOutput.LabelProp = global::Mono.Unix.Catalog.GetString("0");
 		this.OutputBox.Add(this.MainOutput);
 		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.OutputBox[this.MainOutput]));
 		w3.Position = 2;
@@ -525,15 +524,15 @@ public partial class MainWindow
 		this.OperationsRightBox.Name = "OperationsRightBox";
 		this.OperationsRightBox.Spacing = 5;
 		// Container child OperationsRightBox.Gtk.Box+BoxChild
-		this.InvverseButton = new global::Gtk.Button();
-		this.InvverseButton.WidthRequest = 50;
-		this.InvverseButton.HeightRequest = 50;
-		this.InvverseButton.CanFocus = true;
-		this.InvverseButton.Name = "InvverseButton";
-		this.InvverseButton.UseUnderline = true;
-		this.InvverseButton.Label = global::Mono.Unix.Catalog.GetString("1/x");
-		this.OperationsRightBox.Add(this.InvverseButton);
-		global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.InvverseButton]));
+		this.InverseButton = new global::Gtk.Button();
+		this.InverseButton.WidthRequest = 50;
+		this.InverseButton.HeightRequest = 50;
+		this.InverseButton.CanFocus = true;
+		this.InverseButton.Name = "InverseButton";
+		this.InverseButton.UseUnderline = true;
+		this.InverseButton.Label = global::Mono.Unix.Catalog.GetString("1/x");
+		this.OperationsRightBox.Add(this.InverseButton);
+		global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.InverseButton]));
 		w38.Position = 0;
 		w38.Expand = false;
 		w38.Fill = false;

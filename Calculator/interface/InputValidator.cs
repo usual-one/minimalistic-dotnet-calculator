@@ -4,7 +4,7 @@ public class InputValidator
 {
     private string value_;
 
-    private static char negativeSign = '-';
+    private static string negativeSign = "-";
 
     private static string defaultValue = "0";
 
@@ -18,77 +18,82 @@ public class InputValidator
 
     public InputValidator()
     {
-        clearInput();
+        ClearInput();
     }
 
-    public string hangeSign()
+    public string ChangeSign()
     {
-        if (value_[0] == negativeSign)
+        if (value_.StartsWith(negativeSign))
         {
-            value_ = value_.TrimStart(negativeSign);
+            value_ = value_.TrimStart(negativeSign.ToCharArray());
         }
         else
         {
-            value_ = negativeSign.ToString() + value_;
+            value_ = negativeSign + value_;
         }
         return Value;
     }
 
-    public string clearCharacter()
+    public string ClearCharacter()
     {
         value_ = value_.TrimEnd(value_[value_.Length - 1]);
         if (value_.Length == 0 || value_ == negativeSign.ToString())
         {
-            clearInput();
+            ClearInput();
         } 
         return Value;
     }
 
-    public string clearInput()
+    public string ClearInput()
     {
         value_ = defaultValue;
         return Value;
     }
 
-    public string validate(char character)
+    public string Validate(string input)
     {
-        char decimalSeparator = '.';
-        char[] digits = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        string decimalSeparator = ".";
+        string[] digits = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
-        if (character == decimalSeparator)
+        if (input == decimalSeparator)
         {
-            if (value_.Contains(decimalSeparator.ToString()))
+            if (value_ == negativeSign)
             {
-                return Value;
+                value_ += defaultValue + decimalSeparator;
             }
-            if (value_ == negativeSign.ToString())
+            else if (!value_.Contains(decimalSeparator))
             {
-                value_ += defaultValue + decimalSeparator.ToString();
-                return Value;
+                value_ += decimalSeparator;
             }
+            return Value;
         }
 
-        if (character == defaultValue[0] && defaultValue.Length == 1)
+        if (input == defaultValue)
         {
-            if (value_ == defaultValue ||
-                value_ == negativeSign.ToString() + defaultValue)
+            if (value_ != defaultValue &&
+                value_ != negativeSign + defaultValue)
             {
-                return Value;
+                value_ += input;
             }
+            return Value;
         } 
 
-        if (character == negativeSign)
+        if (input == negativeSign)
         {
             if (value_ == defaultValue)
             {
-                value_ = negativeSign.ToString();    
+                value_ = negativeSign;    
                 return Value;
             }
         }
         
-        if (digits.Contains(character))
+        if (digits.Contains(input))
         {
-            value_ += character.ToString();
+            if (value_ == defaultValue)
+            {
+                value_ = "";
+            }
+            value_ += input;
             return Value;
         }
 

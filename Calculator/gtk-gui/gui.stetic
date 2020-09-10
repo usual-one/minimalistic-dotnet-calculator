@@ -40,7 +40,6 @@
             <child>
               <widget class="Gtk.Label" id="SecondaryOutput">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">1+2</property>
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -52,7 +51,7 @@
             <child>
               <widget class="Gtk.Label" id="MainOutput">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">3</property>
+                <property name="LabelProp" translatable="yes">0</property>
               </widget>
               <packing>
                 <property name="Position">2</property>
