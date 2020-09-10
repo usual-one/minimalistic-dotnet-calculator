@@ -576,7 +576,7 @@
                         <property name="MemberName" />
                         <property name="Spacing">5</property>
                         <child>
-                          <widget class="Gtk.Button" id="InvverseButton">
+                          <widget class="Gtk.Button" id="InverseButton">
                             <property name="MemberName" />
                             <property name="WidthRequest">50</property>
                             <property name="HeightRequest">50</property>

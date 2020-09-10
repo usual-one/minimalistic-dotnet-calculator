@@ -62,6 +62,7 @@
     <Compile Include="core\Memory.cs" />
     <Compile Include="core\OperatorType.cs" />
     <Compile Include="core\OperationExecutor.cs" />
+    <Compile Include="interface\OutputFormatter.cs" />
     <Compile Include="utils\ArithmeticCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
