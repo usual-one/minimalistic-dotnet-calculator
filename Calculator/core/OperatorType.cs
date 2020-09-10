@@ -1,8 +1,8 @@
-enum OperatorType {
-    ADDITION,
-    SUBTRACTION,
-    MULTIPLICATION,
-    DIVISION,
-    INVERSION,
-    SQUAREROOT
+public enum OperatorType {
+    Addition,
+    Subtraction,
+    Multiplication,
+    Division,
+    Inversion,
+    SquareRoot
 }

@@ -17,7 +17,7 @@ public static class ArithmeticCalculator
         return a / b;
     }
 
-    public static double Inverse(double a)
+    public static double Invert(double a)
     {
         return 1 / a;
     }
