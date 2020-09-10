@@ -1,5 +1,3 @@
-using System;
-
 public static class ArithmeticCalculator
 {
     public static double Add(double a, double b)
@@ -34,6 +32,6 @@ public static class ArithmeticCalculator
 
     public static double SquareRoot(double a)
     {
-        return Math.Sqrt(a);
+        return System.Math.Sqrt(a);
     }
 }

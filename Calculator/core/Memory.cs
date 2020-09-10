@@ -1,24 +1,26 @@
 public class Memory
 {
-    private double? Value_;
+    private double? value_;
+
+    public double? Value
+    {
+        get
+        {
+            return value_.Value;
+        }
+        set
+        {
+            value_ = value;
+        }
+    }
 
     public void Clear()
     {
-        this.Value_ = null;
-    }
-
-    public double Get()
-    {
-        return this.Value_.Value;
+        Value = null;
     }
 
     public bool IsEmpty()
     {
-        return !this.Value_.HasValue;
-    }
-
-    public void Set(double value_)
-    {
-        this.Value_ = value_;
+        return !value_.HasValue;
     }
 }
