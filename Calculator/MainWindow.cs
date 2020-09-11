@@ -179,7 +179,7 @@ public partial class MainWindow : Gtk.Window
 
         if (operationExecutor.State == ExecutorState.SecondOperandInput)
         {
-            return;
+            CalculateResult(sender, a);
         } 
         
         if (operationExecutor.State == ExecutorState.FirstOperandInput) {
@@ -191,7 +191,14 @@ public partial class MainWindow : Gtk.Window
             operationExecutor.State = ExecutorState.OperatorGot;
         }
 
+
         operationExecutor.Operator = operation;
+        if (operation == OperatorType.Inversion || operation == OperatorType.SquareRoot)
+        {
+            CalculateResult(sender, a);
+            return;
+        }
+
         SetSecondaryOutput(outputFormatter.MakeTempExpression(operationExecutor.FirstOperand,
                                                               operationExecutor.SecondOperand,
                                                               operationExecutor.Operator));
