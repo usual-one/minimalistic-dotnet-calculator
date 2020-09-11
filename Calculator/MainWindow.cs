@@ -59,7 +59,7 @@ public partial class MainWindow : Gtk.Window
         }
 
         string newText = inputValidator.Validate((sender as Button).Label);
-        this.MainOutput.Text = newText;
+        SetMainOutput(newText);
     }
 
     protected void CalculateResult(object sender, EventArgs a)
@@ -73,29 +73,34 @@ public partial class MainWindow : Gtk.Window
         }
         double? result = operationExecutor.Calculate();
 
-        this.MainOutput.Text = outputFormatter.MakeResult(result.Value);
-        this.SecondaryOutput.Text = outputFormatter.MakeTempExpression(operationExecutor.FirstOperand,
+        SetMainOutput(outputFormatter.MakeResult(result.Value));
+        SetSecondaryOutput(outputFormatter.MakeTempExpression(operationExecutor.FirstOperand,
                                                                        operationExecutor.SecondOperand,
-                                                                       operationExecutor.Operator);
+                                                                       operationExecutor.Operator));
         operationExecutor.FirstOperand = result;
 
     }
 
     protected void ChangeSign(object sender, EventArgs a)
     {
-        this.MainOutput.Text = inputValidator.ChangeSign();
+        SetMainOutput(inputValidator.ChangeSign());
     }
 
     protected void ClearAll(object sender, EventArgs a)
     {
         operationExecutor.Clear();
-        this.SecondaryOutput.Text = "";
-        this.MainOutput.Text = inputValidator.ClearInput();
+        SetSecondaryOutput("");
+        SetMainOutput(inputValidator.ClearInput());
     }
 
     protected void ClearInput(object sender, EventArgs a)
     {
-        this.MainOutput.Text = inputValidator.ClearInput();
+        if (operationExecutor.State == ExecutorState.ResultCalculated)
+        {
+            ClearAll(sender, a);
+            return;
+        }
+        SetMainOutput(inputValidator.ClearInput());
     }
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -106,12 +111,65 @@ public partial class MainWindow : Gtk.Window
 
     protected void RemoveCharacter(object sender, EventArgs a)
     {
-        string newText = inputValidator.ClearCharacter();
-        this.MainOutput.Text = newText;
+        if (operationExecutor.State == ExecutorState.ResultCalculated)
+        {
+            ClearAll(sender, a);
+            return;
+        }
+        SetMainOutput(inputValidator.ClearCharacter());
+    }
+
+    protected void SetMainOutput(string output)
+    {
+        this.MainOutput.Text = output;
+    }
+
+    protected void SetMemoryIndicator(bool state)
+    {
+        if (state)
+        {
+            this.MemoryIndicator.Text = "M";
+        }
+        else
+        {
+            this.MemoryIndicator.Text = "";
+        }
     }
 
     protected void SetMemoryState(object sender, EventArgs a)
     {
+        string buttonText = (sender as Button).Label;
+        if (buttonText == "MC")
+        {
+            SetMemoryIndicator(false);
+            memory.Clear();
+        }
+        else if (buttonText == "MS")
+        {
+            SetMemoryIndicator(true);
+            memory.Value = inputValidator.getInput();
+        }
+        else if (buttonText == "MR")
+        {
+            if (memory.IsEmpty())
+            {
+                return;
+            }
+
+            string memoryValue = memory.Value.ToString();
+            SetMainOutput(memoryValue);
+            inputValidator.Value = memoryValue;
+
+            if (operationExecutor.State == ExecutorState.ResultCalculated)
+            {
+                SetSecondaryOutput("");
+            }
+        }
+    }
+
+    protected void SetSecondaryOutput(string output)
+    {
+        this.SecondaryOutput.Text = output;
     }
 
     protected void SetOperation(object sender, EventArgs a)
@@ -134,8 +192,8 @@ public partial class MainWindow : Gtk.Window
         }
 
         operationExecutor.Operator = operation;
-        this.SecondaryOutput.Text = outputFormatter.MakeTempExpression(operationExecutor.FirstOperand,
-                                                                       operationExecutor.SecondOperand,
-                                                                       operationExecutor.Operator);
+        SetSecondaryOutput(outputFormatter.MakeTempExpression(operationExecutor.FirstOperand,
+                                                              operationExecutor.SecondOperand,
+                                                              operationExecutor.Operator));
     }
 }

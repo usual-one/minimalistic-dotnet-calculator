@@ -16,6 +16,10 @@ public class InputValidator
         {
             return value_;
         }
+        set
+        {
+            value_ = value;
+        }
     }
 
     public InputValidator()

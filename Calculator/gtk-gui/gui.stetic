@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/Calculator.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="350 342">
+  <widget class="Gtk.Window" id="MainWindow" design-size="350 345">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Calculator</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -144,8 +144,23 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Alignment" id="alignment1">
+                  <widget class="Gtk.HBox" id="MemoryIndicatorBox">
                     <property name="MemberName" />
+                    <child>
+                      <widget class="Gtk.Label" id="MemoryIndicator">
+                        <property name="MemberName" />
+                        <property name="WidthRequest">20</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">0</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
                     <child>
                       <placeholder />
                     </child>

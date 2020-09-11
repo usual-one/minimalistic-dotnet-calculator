@@ -27,7 +27,9 @@ public partial class MainWindow
 
 	private global::Gtk.Button MRButton;
 
-	private global::Gtk.Alignment alignment1;
+	private global::Gtk.HBox MemoryIndicatorBox;
+
+	private global::Gtk.Label MemoryIndicator;
 
 	private global::Gtk.HBox MainButtonsBox;
 
@@ -196,16 +198,25 @@ public partial class MainWindow
 		w9.Expand = false;
 		w9.Fill = false;
 		// Container child MemoryBox.Gtk.Box+BoxChild
-		this.alignment1 = new global::Gtk.Alignment(0.5F, 0.5F, 1F, 1F);
-		this.alignment1.Name = "alignment1";
-		this.MemoryBox.Add(this.alignment1);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.MemoryBox[this.alignment1]));
-		w10.Position = 2;
+		this.MemoryIndicatorBox = new global::Gtk.HBox();
+		this.MemoryIndicatorBox.Name = "MemoryIndicatorBox";
+		// Container child MemoryIndicatorBox.Gtk.Box+BoxChild
+		this.MemoryIndicator = new global::Gtk.Label();
+		this.MemoryIndicator.WidthRequest = 20;
+		this.MemoryIndicator.Name = "MemoryIndicator";
+		this.MemoryIndicatorBox.Add(this.MemoryIndicator);
+		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.MemoryIndicatorBox[this.MemoryIndicator]));
+		w10.Position = 0;
+		w10.Expand = false;
+		w10.Fill = false;
+		this.MemoryBox.Add(this.MemoryIndicatorBox);
+		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.MemoryBox[this.MemoryIndicatorBox]));
+		w11.Position = 2;
 		this.ControlsBox.Add(this.MemoryBox);
-		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.ControlsBox[this.MemoryBox]));
-		w11.Position = 0;
-		w11.Expand = false;
-		w11.Fill = false;
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.ControlsBox[this.MemoryBox]));
+		w12.Position = 0;
+		w12.Expand = false;
+		w12.Fill = false;
 		// Container child ControlsBox.Gtk.Box+BoxChild
 		this.MainButtonsBox = new global::Gtk.HBox();
 		this.MainButtonsBox.Name = "MainButtonsBox";
@@ -223,10 +234,10 @@ public partial class MainWindow
 		this.DelButton.UseUnderline = true;
 		this.DelButton.Label = global::Mono.Unix.Catalog.GetString("←");
 		this.EraseButtonsBox.Add(this.DelButton);
-		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.DelButton]));
-		w12.Position = 0;
-		w12.Expand = false;
-		w12.Fill = false;
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.DelButton]));
+		w13.Position = 0;
+		w13.Expand = false;
+		w13.Fill = false;
 		// Container child EraseButtonsBox.Gtk.Box+BoxChild
 		this.CEButton = new global::Gtk.Button();
 		this.CEButton.WidthRequest = 50;
@@ -236,10 +247,10 @@ public partial class MainWindow
 		this.CEButton.UseUnderline = true;
 		this.CEButton.Label = global::Mono.Unix.Catalog.GetString("CE");
 		this.EraseButtonsBox.Add(this.CEButton);
-		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.CEButton]));
-		w13.Position = 1;
-		w13.Expand = false;
-		w13.Fill = false;
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.CEButton]));
+		w14.Position = 1;
+		w14.Expand = false;
+		w14.Fill = false;
 		// Container child EraseButtonsBox.Gtk.Box+BoxChild
 		this.CButton = new global::Gtk.Button();
 		this.CButton.WidthRequest = 50;
@@ -249,15 +260,15 @@ public partial class MainWindow
 		this.CButton.UseUnderline = true;
 		this.CButton.Label = global::Mono.Unix.Catalog.GetString("C");
 		this.EraseButtonsBox.Add(this.CButton);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.CButton]));
-		w14.Position = 2;
-		w14.Expand = false;
-		w14.Fill = false;
-		this.MainButtonsBox.Add(this.EraseButtonsBox);
-		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.MainButtonsBox[this.EraseButtonsBox]));
-		w15.Position = 0;
+		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.CButton]));
+		w15.Position = 2;
 		w15.Expand = false;
 		w15.Fill = false;
+		this.MainButtonsBox.Add(this.EraseButtonsBox);
+		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.MainButtonsBox[this.EraseButtonsBox]));
+		w16.Position = 0;
+		w16.Expand = false;
+		w16.Fill = false;
 		// Container child MainButtonsBox.Gtk.Box+BoxChild
 		this.NumbersBox = new global::Gtk.VBox();
 		this.NumbersBox.Name = "NumbersBox";
@@ -275,10 +286,10 @@ public partial class MainWindow
 		this.SevenButton.UseUnderline = true;
 		this.SevenButton.Label = global::Mono.Unix.Catalog.GetString("7");
 		this.NumbersFirstBox.Add(this.SevenButton);
-		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.NumbersFirstBox[this.SevenButton]));
-		w16.Position = 0;
-		w16.Expand = false;
-		w16.Fill = false;
+		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.NumbersFirstBox[this.SevenButton]));
+		w17.Position = 0;
+		w17.Expand = false;
+		w17.Fill = false;
 		// Container child NumbersFirstBox.Gtk.Box+BoxChild
 		this.EightButton = new global::Gtk.Button();
 		this.EightButton.WidthRequest = 50;
@@ -288,10 +299,10 @@ public partial class MainWindow
 		this.EightButton.UseUnderline = true;
 		this.EightButton.Label = global::Mono.Unix.Catalog.GetString("8");
 		this.NumbersFirstBox.Add(this.EightButton);
-		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.NumbersFirstBox[this.EightButton]));
-		w17.Position = 1;
-		w17.Expand = false;
-		w17.Fill = false;
+		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.NumbersFirstBox[this.EightButton]));
+		w18.Position = 1;
+		w18.Expand = false;
+		w18.Fill = false;
 		// Container child NumbersFirstBox.Gtk.Box+BoxChild
 		this.NineButton = new global::Gtk.Button();
 		this.NineButton.WidthRequest = 50;
@@ -301,15 +312,15 @@ public partial class MainWindow
 		this.NineButton.UseUnderline = true;
 		this.NineButton.Label = global::Mono.Unix.Catalog.GetString("9");
 		this.NumbersFirstBox.Add(this.NineButton);
-		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.NumbersFirstBox[this.NineButton]));
-		w18.Position = 2;
-		w18.Expand = false;
-		w18.Fill = false;
-		this.NumbersBox.Add(this.NumbersFirstBox);
-		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.NumbersBox[this.NumbersFirstBox]));
-		w19.Position = 0;
+		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.NumbersFirstBox[this.NineButton]));
+		w19.Position = 2;
 		w19.Expand = false;
 		w19.Fill = false;
+		this.NumbersBox.Add(this.NumbersFirstBox);
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.NumbersBox[this.NumbersFirstBox]));
+		w20.Position = 0;
+		w20.Expand = false;
+		w20.Fill = false;
 		// Container child NumbersBox.Gtk.Box+BoxChild
 		this.NumbersSecondBox = new global::Gtk.HBox();
 		this.NumbersSecondBox.Name = "NumbersSecondBox";
@@ -323,10 +334,10 @@ public partial class MainWindow
 		this.FourButton.UseUnderline = true;
 		this.FourButton.Label = global::Mono.Unix.Catalog.GetString("4");
 		this.NumbersSecondBox.Add(this.FourButton);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.NumbersSecondBox[this.FourButton]));
-		w20.Position = 0;
-		w20.Expand = false;
-		w20.Fill = false;
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.NumbersSecondBox[this.FourButton]));
+		w21.Position = 0;
+		w21.Expand = false;
+		w21.Fill = false;
 		// Container child NumbersSecondBox.Gtk.Box+BoxChild
 		this.FiveButton = new global::Gtk.Button();
 		this.FiveButton.WidthRequest = 50;
@@ -336,10 +347,10 @@ public partial class MainWindow
 		this.FiveButton.UseUnderline = true;
 		this.FiveButton.Label = global::Mono.Unix.Catalog.GetString("5");
 		this.NumbersSecondBox.Add(this.FiveButton);
-		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.NumbersSecondBox[this.FiveButton]));
-		w21.Position = 1;
-		w21.Expand = false;
-		w21.Fill = false;
+		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.NumbersSecondBox[this.FiveButton]));
+		w22.Position = 1;
+		w22.Expand = false;
+		w22.Fill = false;
 		// Container child NumbersSecondBox.Gtk.Box+BoxChild
 		this.SixButton = new global::Gtk.Button();
 		this.SixButton.WidthRequest = 50;
@@ -349,15 +360,15 @@ public partial class MainWindow
 		this.SixButton.UseUnderline = true;
 		this.SixButton.Label = global::Mono.Unix.Catalog.GetString("6");
 		this.NumbersSecondBox.Add(this.SixButton);
-		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.NumbersSecondBox[this.SixButton]));
-		w22.Position = 2;
-		w22.Expand = false;
-		w22.Fill = false;
-		this.NumbersBox.Add(this.NumbersSecondBox);
-		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.NumbersBox[this.NumbersSecondBox]));
-		w23.Position = 1;
+		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.NumbersSecondBox[this.SixButton]));
+		w23.Position = 2;
 		w23.Expand = false;
 		w23.Fill = false;
+		this.NumbersBox.Add(this.NumbersSecondBox);
+		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.NumbersBox[this.NumbersSecondBox]));
+		w24.Position = 1;
+		w24.Expand = false;
+		w24.Fill = false;
 		// Container child NumbersBox.Gtk.Box+BoxChild
 		this.NumbersThirdBox = new global::Gtk.HBox();
 		this.NumbersThirdBox.Name = "NumbersThirdBox";
@@ -371,10 +382,10 @@ public partial class MainWindow
 		this.OneButton.UseUnderline = true;
 		this.OneButton.Label = global::Mono.Unix.Catalog.GetString("1");
 		this.NumbersThirdBox.Add(this.OneButton);
-		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.NumbersThirdBox[this.OneButton]));
-		w24.Position = 0;
-		w24.Expand = false;
-		w24.Fill = false;
+		global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.NumbersThirdBox[this.OneButton]));
+		w25.Position = 0;
+		w25.Expand = false;
+		w25.Fill = false;
 		// Container child NumbersThirdBox.Gtk.Box+BoxChild
 		this.TwoButton = new global::Gtk.Button();
 		this.TwoButton.WidthRequest = 50;
@@ -384,10 +395,10 @@ public partial class MainWindow
 		this.TwoButton.UseUnderline = true;
 		this.TwoButton.Label = global::Mono.Unix.Catalog.GetString("2");
 		this.NumbersThirdBox.Add(this.TwoButton);
-		global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.NumbersThirdBox[this.TwoButton]));
-		w25.Position = 1;
-		w25.Expand = false;
-		w25.Fill = false;
+		global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.NumbersThirdBox[this.TwoButton]));
+		w26.Position = 1;
+		w26.Expand = false;
+		w26.Fill = false;
 		// Container child NumbersThirdBox.Gtk.Box+BoxChild
 		this.ThreeButton = new global::Gtk.Button();
 		this.ThreeButton.WidthRequest = 50;
@@ -397,15 +408,15 @@ public partial class MainWindow
 		this.ThreeButton.UseUnderline = true;
 		this.ThreeButton.Label = global::Mono.Unix.Catalog.GetString("3");
 		this.NumbersThirdBox.Add(this.ThreeButton);
-		global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.NumbersThirdBox[this.ThreeButton]));
-		w26.Position = 2;
-		w26.Expand = false;
-		w26.Fill = false;
-		this.NumbersBox.Add(this.NumbersThirdBox);
-		global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.NumbersBox[this.NumbersThirdBox]));
+		global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.NumbersThirdBox[this.ThreeButton]));
 		w27.Position = 2;
 		w27.Expand = false;
 		w27.Fill = false;
+		this.NumbersBox.Add(this.NumbersThirdBox);
+		global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.NumbersBox[this.NumbersThirdBox]));
+		w28.Position = 2;
+		w28.Expand = false;
+		w28.Fill = false;
 		// Container child NumbersBox.Gtk.Box+BoxChild
 		this.NumbersFourthBox = new global::Gtk.HBox();
 		this.NumbersFourthBox.Name = "NumbersFourthBox";
@@ -419,10 +430,10 @@ public partial class MainWindow
 		this.ChangeSignButton.UseUnderline = true;
 		this.ChangeSignButton.Label = global::Mono.Unix.Catalog.GetString("±");
 		this.NumbersFourthBox.Add(this.ChangeSignButton);
-		global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.NumbersFourthBox[this.ChangeSignButton]));
-		w28.Position = 0;
-		w28.Expand = false;
-		w28.Fill = false;
+		global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.NumbersFourthBox[this.ChangeSignButton]));
+		w29.Position = 0;
+		w29.Expand = false;
+		w29.Fill = false;
 		// Container child NumbersFourthBox.Gtk.Box+BoxChild
 		this.ZeroButton = new global::Gtk.Button();
 		this.ZeroButton.WidthRequest = 50;
@@ -432,10 +443,10 @@ public partial class MainWindow
 		this.ZeroButton.UseUnderline = true;
 		this.ZeroButton.Label = global::Mono.Unix.Catalog.GetString("0");
 		this.NumbersFourthBox.Add(this.ZeroButton);
-		global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.NumbersFourthBox[this.ZeroButton]));
-		w29.Position = 1;
-		w29.Expand = false;
-		w29.Fill = false;
+		global::Gtk.Box.BoxChild w30 = ((global::Gtk.Box.BoxChild)(this.NumbersFourthBox[this.ZeroButton]));
+		w30.Position = 1;
+		w30.Expand = false;
+		w30.Fill = false;
 		// Container child NumbersFourthBox.Gtk.Box+BoxChild
 		this.DotButton = new global::Gtk.Button();
 		this.DotButton.WidthRequest = 50;
@@ -445,21 +456,21 @@ public partial class MainWindow
 		this.DotButton.UseUnderline = true;
 		this.DotButton.Label = global::Mono.Unix.Catalog.GetString(".");
 		this.NumbersFourthBox.Add(this.DotButton);
-		global::Gtk.Box.BoxChild w30 = ((global::Gtk.Box.BoxChild)(this.NumbersFourthBox[this.DotButton]));
-		w30.Position = 2;
-		w30.Expand = false;
-		w30.Fill = false;
-		this.NumbersBox.Add(this.NumbersFourthBox);
-		global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.NumbersBox[this.NumbersFourthBox]));
-		w31.PackType = ((global::Gtk.PackType)(1));
-		w31.Position = 3;
+		global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.NumbersFourthBox[this.DotButton]));
+		w31.Position = 2;
 		w31.Expand = false;
 		w31.Fill = false;
-		this.MainButtonsBox.Add(this.NumbersBox);
-		global::Gtk.Box.BoxChild w32 = ((global::Gtk.Box.BoxChild)(this.MainButtonsBox[this.NumbersBox]));
-		w32.Position = 1;
+		this.NumbersBox.Add(this.NumbersFourthBox);
+		global::Gtk.Box.BoxChild w32 = ((global::Gtk.Box.BoxChild)(this.NumbersBox[this.NumbersFourthBox]));
+		w32.PackType = ((global::Gtk.PackType)(1));
+		w32.Position = 3;
 		w32.Expand = false;
 		w32.Fill = false;
+		this.MainButtonsBox.Add(this.NumbersBox);
+		global::Gtk.Box.BoxChild w33 = ((global::Gtk.Box.BoxChild)(this.MainButtonsBox[this.NumbersBox]));
+		w33.Position = 1;
+		w33.Expand = false;
+		w33.Fill = false;
 		// Container child MainButtonsBox.Gtk.Box+BoxChild
 		this.OperationsBox = new global::Gtk.HBox();
 		this.OperationsBox.Name = "OperationsBox";
@@ -477,10 +488,10 @@ public partial class MainWindow
 		this.DivideButton.UseUnderline = true;
 		this.DivideButton.Label = global::Mono.Unix.Catalog.GetString("÷");
 		this.OperationsLeftBox.Add(this.DivideButton);
-		global::Gtk.Box.BoxChild w33 = ((global::Gtk.Box.BoxChild)(this.OperationsLeftBox[this.DivideButton]));
-		w33.Position = 0;
-		w33.Expand = false;
-		w33.Fill = false;
+		global::Gtk.Box.BoxChild w34 = ((global::Gtk.Box.BoxChild)(this.OperationsLeftBox[this.DivideButton]));
+		w34.Position = 0;
+		w34.Expand = false;
+		w34.Fill = false;
 		// Container child OperationsLeftBox.Gtk.Box+BoxChild
 		this.MultiplyButton = new global::Gtk.Button();
 		this.MultiplyButton.WidthRequest = 50;
@@ -490,10 +501,10 @@ public partial class MainWindow
 		this.MultiplyButton.UseUnderline = true;
 		this.MultiplyButton.Label = global::Mono.Unix.Catalog.GetString("×");
 		this.OperationsLeftBox.Add(this.MultiplyButton);
-		global::Gtk.Box.BoxChild w34 = ((global::Gtk.Box.BoxChild)(this.OperationsLeftBox[this.MultiplyButton]));
-		w34.Position = 1;
-		w34.Expand = false;
-		w34.Fill = false;
+		global::Gtk.Box.BoxChild w35 = ((global::Gtk.Box.BoxChild)(this.OperationsLeftBox[this.MultiplyButton]));
+		w35.Position = 1;
+		w35.Expand = false;
+		w35.Fill = false;
 		// Container child OperationsLeftBox.Gtk.Box+BoxChild
 		this.SubtractButton = new global::Gtk.Button();
 		this.SubtractButton.WidthRequest = 50;
@@ -503,10 +514,10 @@ public partial class MainWindow
 		this.SubtractButton.UseUnderline = true;
 		this.SubtractButton.Label = global::Mono.Unix.Catalog.GetString("-");
 		this.OperationsLeftBox.Add(this.SubtractButton);
-		global::Gtk.Box.BoxChild w35 = ((global::Gtk.Box.BoxChild)(this.OperationsLeftBox[this.SubtractButton]));
-		w35.Position = 2;
-		w35.Expand = false;
-		w35.Fill = false;
+		global::Gtk.Box.BoxChild w36 = ((global::Gtk.Box.BoxChild)(this.OperationsLeftBox[this.SubtractButton]));
+		w36.Position = 2;
+		w36.Expand = false;
+		w36.Fill = false;
 		// Container child OperationsLeftBox.Gtk.Box+BoxChild
 		this.AddButton = new global::Gtk.Button();
 		this.AddButton.WidthRequest = 50;
@@ -516,15 +527,15 @@ public partial class MainWindow
 		this.AddButton.UseUnderline = true;
 		this.AddButton.Label = global::Mono.Unix.Catalog.GetString("+");
 		this.OperationsLeftBox.Add(this.AddButton);
-		global::Gtk.Box.BoxChild w36 = ((global::Gtk.Box.BoxChild)(this.OperationsLeftBox[this.AddButton]));
-		w36.Position = 3;
-		w36.Expand = false;
-		w36.Fill = false;
-		this.OperationsBox.Add(this.OperationsLeftBox);
-		global::Gtk.Box.BoxChild w37 = ((global::Gtk.Box.BoxChild)(this.OperationsBox[this.OperationsLeftBox]));
-		w37.Position = 0;
+		global::Gtk.Box.BoxChild w37 = ((global::Gtk.Box.BoxChild)(this.OperationsLeftBox[this.AddButton]));
+		w37.Position = 3;
 		w37.Expand = false;
 		w37.Fill = false;
+		this.OperationsBox.Add(this.OperationsLeftBox);
+		global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.OperationsBox[this.OperationsLeftBox]));
+		w38.Position = 0;
+		w38.Expand = false;
+		w38.Fill = false;
 		// Container child OperationsBox.Gtk.Box+BoxChild
 		this.OperationsRightBox = new global::Gtk.VBox();
 		this.OperationsRightBox.Name = "OperationsRightBox";
@@ -538,10 +549,10 @@ public partial class MainWindow
 		this.InvertButton.UseUnderline = true;
 		this.InvertButton.Label = global::Mono.Unix.Catalog.GetString("1/x");
 		this.OperationsRightBox.Add(this.InvertButton);
-		global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.InvertButton]));
-		w38.Position = 0;
-		w38.Expand = false;
-		w38.Fill = false;
+		global::Gtk.Box.BoxChild w39 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.InvertButton]));
+		w39.Position = 0;
+		w39.Expand = false;
+		w39.Fill = false;
 		// Container child OperationsRightBox.Gtk.Box+BoxChild
 		this.SquareRootButton = new global::Gtk.Button();
 		this.SquareRootButton.WidthRequest = 50;
@@ -551,10 +562,10 @@ public partial class MainWindow
 		this.SquareRootButton.UseUnderline = true;
 		this.SquareRootButton.Label = global::Mono.Unix.Catalog.GetString("√");
 		this.OperationsRightBox.Add(this.SquareRootButton);
-		global::Gtk.Box.BoxChild w39 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.SquareRootButton]));
-		w39.Position = 1;
-		w39.Expand = false;
-		w39.Fill = false;
+		global::Gtk.Box.BoxChild w40 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.SquareRootButton]));
+		w40.Position = 1;
+		w40.Expand = false;
+		w40.Fill = false;
 		// Container child OperationsRightBox.Gtk.Box+BoxChild
 		this.ResultButton = new global::Gtk.Button();
 		this.ResultButton.WidthRequest = 50;
@@ -564,30 +575,30 @@ public partial class MainWindow
 		this.ResultButton.UseUnderline = true;
 		this.ResultButton.Label = global::Mono.Unix.Catalog.GetString("=");
 		this.OperationsRightBox.Add(this.ResultButton);
-		global::Gtk.Box.BoxChild w40 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.ResultButton]));
-		w40.Position = 2;
-		w40.Expand = false;
-		w40.Fill = false;
-		this.OperationsBox.Add(this.OperationsRightBox);
-		global::Gtk.Box.BoxChild w41 = ((global::Gtk.Box.BoxChild)(this.OperationsBox[this.OperationsRightBox]));
-		w41.Position = 1;
+		global::Gtk.Box.BoxChild w41 = ((global::Gtk.Box.BoxChild)(this.OperationsRightBox[this.ResultButton]));
+		w41.Position = 2;
 		w41.Expand = false;
 		w41.Fill = false;
-		this.MainButtonsBox.Add(this.OperationsBox);
-		global::Gtk.Box.BoxChild w42 = ((global::Gtk.Box.BoxChild)(this.MainButtonsBox[this.OperationsBox]));
-		w42.Position = 2;
+		this.OperationsBox.Add(this.OperationsRightBox);
+		global::Gtk.Box.BoxChild w42 = ((global::Gtk.Box.BoxChild)(this.OperationsBox[this.OperationsRightBox]));
+		w42.Position = 1;
 		w42.Expand = false;
 		w42.Fill = false;
-		this.ControlsBox.Add(this.MainButtonsBox);
-		global::Gtk.Box.BoxChild w43 = ((global::Gtk.Box.BoxChild)(this.ControlsBox[this.MainButtonsBox]));
-		w43.Position = 1;
+		this.MainButtonsBox.Add(this.OperationsBox);
+		global::Gtk.Box.BoxChild w43 = ((global::Gtk.Box.BoxChild)(this.MainButtonsBox[this.OperationsBox]));
+		w43.Position = 2;
 		w43.Expand = false;
 		w43.Fill = false;
-		this.MainContainerBox.Add(this.ControlsBox);
-		global::Gtk.Box.BoxChild w44 = ((global::Gtk.Box.BoxChild)(this.MainContainerBox[this.ControlsBox]));
+		this.ControlsBox.Add(this.MainButtonsBox);
+		global::Gtk.Box.BoxChild w44 = ((global::Gtk.Box.BoxChild)(this.ControlsBox[this.MainButtonsBox]));
 		w44.Position = 1;
 		w44.Expand = false;
 		w44.Fill = false;
+		this.MainContainerBox.Add(this.ControlsBox);
+		global::Gtk.Box.BoxChild w45 = ((global::Gtk.Box.BoxChild)(this.MainContainerBox[this.ControlsBox]));
+		w45.Position = 1;
+		w45.Expand = false;
+		w45.Fill = false;
 		this.Add(this.MainContainerBox);
 		if ((this.Child != null))
 		{
