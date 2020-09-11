@@ -33,8 +33,8 @@ public partial class MainWindow : Gtk.Window
         this.DotButton.Clicked += new global::System.EventHandler(this.AppendCharacter);
 
         this.DelButton.Clicked += new global::System.EventHandler(this.RemoveCharacter);
-        this.CButton.Clicked += new global::System.EventHandler(this.ClearInput);
-        this.CEButton.Clicked += new global::System.EventHandler(this.ClearAll);
+        this.CEButton.Clicked += new global::System.EventHandler(this.ClearInput);
+        this.CButton.Clicked += new global::System.EventHandler(this.ClearAll);
         
         this.ResultButton.Clicked += new global::System.EventHandler(this.CalculateResult);
         this.ChangeSignButton.Clicked += new global::System.EventHandler(this.ChangeSign);
@@ -83,14 +83,19 @@ public partial class MainWindow : Gtk.Window
 
     protected void ChangeSign(object sender, EventArgs a)
     {
+        this.MainOutput.Text = inputValidator.ChangeSign();
     }
 
     protected void ClearAll(object sender, EventArgs a)
     {
+        operationExecutor.Clear();
+        this.SecondaryOutput.Text = "";
+        this.MainOutput.Text = inputValidator.ClearInput();
     }
 
     protected void ClearInput(object sender, EventArgs a)
     {
+        this.MainOutput.Text = inputValidator.ClearInput();
     }
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)

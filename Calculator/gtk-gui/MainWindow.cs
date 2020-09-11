@@ -35,9 +35,9 @@ public partial class MainWindow
 
 	private global::Gtk.Button DelButton;
 
-	private global::Gtk.Button CButton;
-
 	private global::Gtk.Button CEButton;
+
+	private global::Gtk.Button CButton;
 
 	private global::Gtk.VBox NumbersBox;
 
@@ -228,28 +228,28 @@ public partial class MainWindow
 		w12.Expand = false;
 		w12.Fill = false;
 		// Container child EraseButtonsBox.Gtk.Box+BoxChild
-		this.CButton = new global::Gtk.Button();
-		this.CButton.WidthRequest = 50;
-		this.CButton.HeightRequest = 50;
-		this.CButton.CanFocus = true;
-		this.CButton.Name = "CButton";
-		this.CButton.UseUnderline = true;
-		this.CButton.Label = global::Mono.Unix.Catalog.GetString("C");
-		this.EraseButtonsBox.Add(this.CButton);
-		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.CButton]));
-		w13.Position = 1;
-		w13.Expand = false;
-		w13.Fill = false;
-		// Container child EraseButtonsBox.Gtk.Box+BoxChild
 		this.CEButton = new global::Gtk.Button();
 		this.CEButton.WidthRequest = 50;
-		this.CEButton.HeightRequest = 105;
+		this.CEButton.HeightRequest = 50;
 		this.CEButton.CanFocus = true;
 		this.CEButton.Name = "CEButton";
 		this.CEButton.UseUnderline = true;
 		this.CEButton.Label = global::Mono.Unix.Catalog.GetString("CE");
 		this.EraseButtonsBox.Add(this.CEButton);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.CEButton]));
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.CEButton]));
+		w13.Position = 1;
+		w13.Expand = false;
+		w13.Fill = false;
+		// Container child EraseButtonsBox.Gtk.Box+BoxChild
+		this.CButton = new global::Gtk.Button();
+		this.CButton.WidthRequest = 50;
+		this.CButton.HeightRequest = 105;
+		this.CButton.CanFocus = true;
+		this.CButton.Name = "CButton";
+		this.CButton.UseUnderline = true;
+		this.CButton.Label = global::Mono.Unix.Catalog.GetString("C");
+		this.EraseButtonsBox.Add(this.CButton);
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.EraseButtonsBox[this.CButton]));
 		w14.Position = 2;
 		w14.Expand = false;
 		w14.Fill = false;

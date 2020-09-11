@@ -189,13 +189,13 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Button" id="CButton">
+                      <widget class="Gtk.Button" id="CEButton">
                         <property name="MemberName" />
                         <property name="WidthRequest">50</property>
                         <property name="HeightRequest">50</property>
                         <property name="CanFocus">True</property>
                         <property name="Type">TextOnly</property>
-                        <property name="Label" translatable="yes">C</property>
+                        <property name="Label" translatable="yes">CE</property>
                         <property name="UseUnderline">True</property>
                       </widget>
                       <packing>
@@ -206,13 +206,13 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Button" id="CEButton">
+                      <widget class="Gtk.Button" id="CButton">
                         <property name="MemberName" />
                         <property name="WidthRequest">50</property>
                         <property name="HeightRequest">105</property>
                         <property name="CanFocus">True</property>
                         <property name="Type">TextOnly</property>
-                        <property name="Label" translatable="yes">CE</property>
+                        <property name="Label" translatable="yes">C</property>
                         <property name="UseUnderline">True</property>
                       </widget>
                       <packing>
