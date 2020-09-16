@@ -4,20 +4,93 @@
              xmlns:local="clr-namespace:CalculatorWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style x:Key="CloseButton" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="assets\img\close button.png" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Source" Value="assets\img\close button active.png" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MinimizeButton" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="assets\img\minimize button.png" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Source" Value="assets\img\minimize button active.png" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="GrayButtonTemplate" TargetType="Button">
             <Setter Property="Background" Value="#B2777777" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="12" Background="{TemplateBinding Background}" BorderThickness="1">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Name="ButtonGrid" Background="Transparent">
+                            <Border CornerRadius="12" Background="{TemplateBinding Background}" BorderThickness="1">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                            </ContentPresenter>
-                        </Border>
+                                </ContentPresenter>
+                            </Border>
+                            <Grid.RenderTransform>
+                                <ScaleTransform CenterX="25" CenterY="25"/>
+                            </Grid.RenderTransform>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" To="#B2A8A8A8" Duration="0:0:0.3" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" To="#B2777777" Duration="0:0:0.3" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                             To="0.95" Duration="0:0:0.1"/>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                             To="0.95" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                             To="1" Duration="0:0:0.1"/>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                             To="1" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            
         </Style>
         
         <Style x:Key="TransparentButtonTemplate" TargetType="Button">
@@ -26,11 +99,65 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="12" Background="{TemplateBinding Background}" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Name="ButtonGrid" Background="Transparent">
+                            <Border CornerRadius="12" Background="{TemplateBinding Background}" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                            </ContentPresenter>
-                        </Border>
+                                </ContentPresenter>
+                            </Border>
+                            <Grid.RenderTransform>
+                                <ScaleTransform CenterX="25" CenterY="25"/>
+                            </Grid.RenderTransform> 
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" To="#10FFFFFF" Duration="0:0:0.3" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" To="Transparent" Duration="0:0:0.3" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                             To="0.95" Duration="0:0:0.1"/>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                             To="0.95" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                             To="1" Duration="0:0:0.1"/>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                             To="1" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -40,24 +167,69 @@
             <GradientStop Color="#FFFF4F6A"/>
             <GradientStop Color="#FFFF8353" Offset="1"/>
         </LinearGradientBrush>
+        <LinearGradientBrush x:Key="GradientShadeBackground" EndPoint="1,0.476" StartPoint="0,0">
+            <GradientStop Color="#FFFF6980" Offset="1"/>
+            <GradientStop Color="#FFFF966D" Offset="1"/>
+        </LinearGradientBrush>
         <Style x:Key="GradientButtonTemplate" TargetType="Button">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="Background" Value="{StaticResource GradientBackground}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="12" Background="{StaticResource GradientBackground}" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Name="ButtonGrid" Background="Transparent">
+                            <Border CornerRadius="12" Background="{StaticResource GradientBackground}" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                            </ContentPresenter>
-                        </Border>
+                                </ContentPresenter>
+                            </Border>
+                            <Grid.RenderTransform>
+                                <ScaleTransform CenterX="25" CenterY="25"/>
+                            </Grid.RenderTransform>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource GradientShadeBackground}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                             To="0.95" Duration="0:0:0.1"/>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                             To="0.95" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                             To="1" Duration="0:0:0.1"/>
+                                            <DoubleAnimation
+                                             Storyboard.TargetName="ButtonGrid"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                             To="1" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
         
         <Style x:Key="MemoryButtonTemplate" TargetType="Button">
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="#FFA0A0A0" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -67,9 +239,46 @@
 
                             </ContentPresenter>
                         </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)" To="#FFFFFFFF" Duration="0:0:0.3" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)" To="#FFA0A0A0" Duration="0:0:0.3" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="FontSize" To="10" Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="FontSize" To="12" Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            
+            
         </Style>
         
     </Application.Resources>

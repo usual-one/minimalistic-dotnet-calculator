@@ -27,8 +27,8 @@
         <Grid Name="PaddingTopGrid" Grid.Row="0" Background="Transparent"/>
 
         <Grid Name="ToolbarGrid" Grid.Row="1" Background="Transparent">
-            <Image Name="btnMinimize" HorizontalAlignment="Left" Height="12" Margin="301,0,0,0" VerticalAlignment="Bottom" Width="12" Source="assets/img/minimize button.png"/>
-            <Image Name="btnClose" HorizontalAlignment="Left" Height="12" Margin="323,0,0,0" Width="12" Source="assets/img/close button.png"/>
+            <Image Name="btnMinimize" HorizontalAlignment="Left" Height="12" Margin="301,0,0,0" VerticalAlignment="Bottom" Width="12" Style="{StaticResource MinimizeButton}" />
+            <Image Name="btnClose" HorizontalAlignment="Left" Height="12" Margin="323,0,0,0" Width="12" Style="{StaticResource CloseButton}"/>
         </Grid>
 
         <Grid Name="OutputGrid" Grid.Row="2">
@@ -48,8 +48,8 @@
 
             <Grid Name="MemoryGrid" Grid.Row="0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Name="btnMC" Content="MC" VerticalAlignment="Top" Width="21" Style="{StaticResource MemoryButtonTemplate}" FontFamily="IBM Plex Sans" Foreground="#FFA0A0A0" FontSize="12" BorderThickness="0" Height="17"/>
-                    <Button Name="btnMS" Content="MS" VerticalAlignment="Top" Width="21" Style="{StaticResource MemoryButtonTemplate}" FontFamily="IBM Plex Sans" Foreground="#FFA0A0A0" FontSize="12" BorderThickness="0" Height="17"/>
+                    <Button Name="btnMC" Content="MC" VerticalAlignment="Top" Width="21" Style="{StaticResource MemoryButtonTemplate}" FontFamily="IBM Plex Sans" FontSize="12" BorderThickness="0" Height="17"/>
+                    <Button Name="btnMS" Content="MS" VerticalAlignment="Top" Width="21" Style="{StaticResource MemoryButtonTemplate}" FontFamily="IBM Plex Sans" FontSize="12" BorderThickness="0" Height="17"/>
                     <Button Name="btnMR" Content="MR" VerticalAlignment="Top" Width="21" Style="{StaticResource MemoryButtonTemplate}" FontFamily="IBM Plex Sans" Foreground="#FFA0A0A0" FontSize="12" BorderThickness="0" Height="17"/>
                 </StackPanel>
                 <Image Name="MemoryIndicator" HorizontalAlignment="Left" Height="5" Margin="209,6,0,0" VerticalAlignment="Top" Width="5" Source="assets/img/memory indicator.png" Opacity="0"/>

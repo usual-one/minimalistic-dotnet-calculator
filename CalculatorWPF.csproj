@@ -105,6 +105,8 @@
     <Resource Include="assets\img\memory indicator.png" />
     <Resource Include="assets\img\minimize button.png" />
     <Resource Include="assets\img\close button.png" />
+    <Resource Include="assets\img\minimize button active.png" />
+    <Resource Include="assets\img\close button active.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
