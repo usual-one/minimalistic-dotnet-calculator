@@ -48,6 +48,11 @@ public class OutputFormatter
         {
             output += "÷";
         }
+
+        if (operator_ == null)
+        {
+            return output;
+        }
         
         if (secondOperand != null) 
         {

@@ -156,6 +156,18 @@ namespace CalculatorWPF
 
         private void SetMainOutput(string output)
         {
+            if (output.Length <= 10)
+            {
+                this.MainOutput.FontSize = 54;
+            }
+            else if (output.Length <= 15)
+            {
+                this.MainOutput.FontSize = 36;
+            }
+            else if (output.Length <= 20)
+            {
+                this.MainOutput.FontSize = 28;
+            }
             this.MainOutput.Content = output;
         }
 
@@ -204,6 +216,18 @@ namespace CalculatorWPF
 
         private void SetSecondaryOutput(string output)
         {
+            if (output.Length <= 20)
+            {
+                this.SecondaryOutput.FontSize = 27;
+            }
+            else if (output.Length <= 30)
+            {
+                this.SecondaryOutput.FontSize = 18;
+            }
+            else
+            {
+                this.SecondaryOutput.FontSize = 14;
+            }
             this.SecondaryOutput.Content = output;
         }
 
