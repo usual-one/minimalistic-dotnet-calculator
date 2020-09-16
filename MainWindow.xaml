@@ -1,0 +1,107 @@
+﻿<Window x:Class="CalculatorWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorWPF"
+        mc:Ignorable="d"
+        Title="Calculator" Height="371" Width="345"
+        WindowStyle="None"
+        ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.929">
+            <GradientStop Color="#505050" Offset="0"/>
+            <GradientStop Color="#303030" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="12"/>
+            <RowDefinition Height="107"/>
+            <RowDefinition Height="232"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Grid Name="PaddingTopGrid" Grid.Row="0" Background="Transparent"/>
+
+        <Grid Name="ToolbarGrid" Grid.Row="1" Background="Transparent">
+            <Image Name="btnMinimize" HorizontalAlignment="Left" Height="12" Margin="301,0,0,0" VerticalAlignment="Bottom" Width="12" Source="assets/img/minimize button.png"/>
+            <Image Name="btnClose" HorizontalAlignment="Left" Height="12" Margin="323,0,0,0" Width="12" Source="assets/img/close button.png"/>
+        </Grid>
+
+        <Grid Name="OutputGrid" Grid.Row="2">
+            <Label Name="SecondaryOutput" Content="" HorizontalAlignment="Center"  VerticalAlignment="Top" FontFamily="IBM Plex Sans" Foreground="#FFA0A0A0" FontSize="27" Height="39"/>
+            <Label Name="MainOutput" Content="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,37,0,0"  FontFamily="IBM Plex Sans" FontWeight="Bold" Foreground="White" FontSize="54" Height="70">
+                <Label.BitmapEffect>
+                    <DropShadowBitmapEffect Color="#3F000000" Direction="320" ShadowDepth="1" Softness="0" />
+                </Label.BitmapEffect>
+            </Label>
+        </Grid>
+
+        <Grid Name="ButtonsGrid" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Name="MemoryGrid" Grid.Row="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="btnMC" Content="MC" VerticalAlignment="Top" Width="21" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" FontFamily="IBM Plex Sans" Foreground="#FFA0A0A0" FontSize="12" BorderThickness="0" Height="17"/>
+                    <Button Name="btnMS" Content="MS" VerticalAlignment="Top" Width="21" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" FontFamily="IBM Plex Sans" Foreground="#FFA0A0A0" FontSize="12" BorderThickness="0" Height="17"/>
+                    <Button Name="btnMR" Content="MR" VerticalAlignment="Top" Width="21" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" FontFamily="IBM Plex Sans" Foreground="#FFA0A0A0" FontSize="12" BorderThickness="0" Height="17"/>
+                </StackPanel>
+                <Image Name="MemoryIndicator" HorizontalAlignment="Left" Height="5" Margin="209,8,0,0" VerticalAlignment="Top" Width="5" Source="assets/img/memory indicator.png" Opacity="0"/>
+            </Grid>
+
+            <Grid Name="BiggerButtonsGrid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Name="EraseButtonsGrid" Grid.Column="1">
+                    <Button Name="btnDel" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnCE" Content="CE" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnC" Content="C" HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="50" Height="105" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                </Grid>
+
+                <Grid Name="NumberButtonsGrid" Grid.Column="2">
+                    <Button Name="btnNine" Content="9" HorizontalAlignment="Left" Margin="115,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnEight" Content="8" HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnSeven" Content="7" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnSix" Content="6" HorizontalAlignment="Left" Margin="115,55,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnFive" Content="5" HorizontalAlignment="Left" Margin="60,55,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnFour" Content="4" HorizontalAlignment="Left" Margin="5,55,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnThree" Content="3" HorizontalAlignment="Left" Margin="115,110,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnTwo" Content="2" HorizontalAlignment="Left" Margin="60,110,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnOne" Content="1" HorizontalAlignment="Left" Margin="5,110,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnZero" Content="0" HorizontalAlignment="Left" Margin="115,165,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnDot" Content="." HorizontalAlignment="Left" Margin="60,165,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnChangeSign" Content="±" HorizontalAlignment="Left" Margin="5,165,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                </Grid>
+
+                <Grid Name="OperationButtonsGrid" Grid.Column="3">
+                    <Button Name="btnDivide" Content="÷" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnInvert" Content="1/x" HorizontalAlignment="Left" Margin="55,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnMultiply" Content="×" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnSubtract" Content="-" HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnAdd" Content="+" HorizontalAlignment="Left" Margin="0,165,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnSquareRoot" Content="√" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#B2777777" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27"/>
+                    <Button Name="btnResult" Content="=" HorizontalAlignment="Left" Margin="55,110,0,0" VerticalAlignment="Top" Width="50" Height="105" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontFamily="IBM Plex Sans Medium" FontSize="27">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="1,0.476" StartPoint="0,0">
+                                <GradientStop Color="#FFFF4F6A"/>
+                                <GradientStop Color="#FFFF8353" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
