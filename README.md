@@ -7,4 +7,4 @@ Simple .NET Core calculator for BMSTU APL course
 This project uses:
 - C#
 - .NET Core
-- Gtk 2
+- WinForms
