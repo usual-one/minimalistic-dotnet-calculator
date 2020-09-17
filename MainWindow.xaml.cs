@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -98,6 +99,12 @@ namespace CalculatorWPF
                 operationExecutor.State = ExecutorState.SecondOperandInput;
             }
 
+            if (operationExecutor.State == ExecutorState.ResultCalculated)
+            {
+                inputValidator.ClearInput();
+                SetSecondaryOutput("");
+                operationExecutor.Clear();
+            }
             string newText = inputValidator.Validate((sender as Button).Content.ToString());
             SetMainOutput(newText);
         }

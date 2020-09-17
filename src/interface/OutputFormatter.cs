@@ -1,5 +1,13 @@
+using System.Globalization;
+
 public class OutputFormatter
 {
+    private NumberFormatInfo nfi;
+    public OutputFormatter()
+    {
+        nfi = new NumberFormatInfo();
+        nfi.NumberDecimalSeparator = ".";
+    }
     private string BeautifyNumber(double number)
     {
         if ((int) number == number)
@@ -7,7 +15,7 @@ public class OutputFormatter
             number = (int) number;
         }
 
-        return number.ToString();
+        return number.ToString(nfi);
     }
 
     public string MakeMemory(double memory)

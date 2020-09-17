@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Globalization;
 
 public class InputValidator
 {
@@ -135,9 +136,9 @@ public class InputValidator
         
         if (digits.Contains(input))
         {
-            if (value_ == defaultValue)
+            if (value_ == defaultValue || value_ == negativeSign + defaultValue)
             {
-                value_ = "";
+                value_ = value_.TrimEnd(defaultValue.ToCharArray());
             }
             value_ += input;
             return Value;

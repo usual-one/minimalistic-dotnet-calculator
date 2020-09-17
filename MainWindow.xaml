@@ -52,7 +52,14 @@
                     <Button Name="btnMS" Content="MS" VerticalAlignment="Top" Width="21" Style="{StaticResource MemoryButtonTemplate}" FontFamily="IBM Plex Sans" FontSize="12" BorderThickness="0" Height="17"/>
                     <Button Name="btnMR" Content="MR" VerticalAlignment="Top" Width="21" Style="{StaticResource MemoryButtonTemplate}" FontFamily="IBM Plex Sans" Foreground="#FFA0A0A0" FontSize="12" BorderThickness="0" Height="17"/>
                 </StackPanel>
-                <Image Name="MemoryIndicator" HorizontalAlignment="Left" Height="5" Margin="209,6,0,0" VerticalAlignment="Top" Width="5" Source="assets/img/memory indicator.png" Opacity="0"/>
+                <Image Name="MemoryIndicator" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Height="5" 
+                       Width="5" 
+                       Margin="209,6,0,0" 
+                       Source="assets/img/memory indicator.png"
+                       Opacity="0"/>
             </Grid>
 
             <Grid Name="BiggerButtonsGrid" Grid.Row="1">
