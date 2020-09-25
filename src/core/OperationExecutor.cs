@@ -92,18 +92,41 @@ public class OperationExecutor
         }
         else if (Operator == OperatorType.Division)
         {
-            return ArithmeticCalculator.Divide((double)FirstOperand, (double)SecondOperand);
+            try
+            {
+                return ArithmeticCalculator.Divide((double)FirstOperand, (double)SecondOperand);
+            }
+            catch (System.DivideByZeroException)
+            {
+                State = ExecutorState.Error;
+                return 0;
+            }
         }
         else if (Operator == OperatorType.Inversion)
         {
-            return ArithmeticCalculator.Invert((double)FirstOperand);
+            try
+            {
+                return ArithmeticCalculator.Invert((double)FirstOperand);
+            }
+            catch (System.DivideByZeroException)
+            {
+                State = ExecutorState.Error;
+                return 0;
+            }
         }
         else if (Operator == OperatorType.SquareRoot)
         {
-            return ArithmeticCalculator.SquareRoot((double)this.FirstOperand);
+            try
+            {
+                return ArithmeticCalculator.SquareRoot((double)FirstOperand);
+            }
+            catch (SquareRootOfNegativeException)
+            {
+                State = ExecutorState.Error;
+                return 0;
+            }
         }
 
-        // TODO: make exception
-        throw new System.Exception();
+        throw new System.NotSupportedException("unknown operation type");
     }
 }

@@ -99,7 +99,8 @@ namespace CalculatorWPF
                 operationExecutor.State = ExecutorState.SecondOperandInput;
             }
 
-            if (operationExecutor.State == ExecutorState.ResultCalculated)
+            if (operationExecutor.State == ExecutorState.ResultCalculated ||
+                operationExecutor.State == ExecutorState.Error)
             {
                 inputValidator.ClearInput();
                 SetSecondaryOutput("");
@@ -111,6 +112,11 @@ namespace CalculatorWPF
 
         private void CalculateResult(object sender, RoutedEventArgs e)
         {
+            if (operationExecutor.State == ExecutorState.Error)
+            {
+                return;
+            }
+
             if (operationExecutor.State == ExecutorState.FirstOperandInput)
             {
                 operationExecutor.FirstOperand = inputValidator.getInput();
@@ -121,16 +127,32 @@ namespace CalculatorWPF
             }
             double? result = operationExecutor.Calculate();
 
-            SetMainOutput(outputFormatter.MakeResult(result.Value));
-            SetSecondaryOutput(outputFormatter.MakeTempExpression(operationExecutor.FirstOperand,
-                                                                           operationExecutor.SecondOperand,
-                                                                           operationExecutor.Operator));
+            if (operationExecutor.State == ExecutorState.ResultCalculated)
+            {
+                SetMainOutput(outputFormatter.MakeResult(result.Value));
+                SetSecondaryOutput(outputFormatter.MakeTempExpression(operationExecutor.FirstOperand,
+                                                                               operationExecutor.SecondOperand,
+                                                                               operationExecutor.Operator));
+            }
+            else if (operationExecutor.State == ExecutorState.Error)
+            {
+                SetMainOutput(outputFormatter.PrintError());
+                SetSecondaryOutput("");
+            }
+            
             operationExecutor.FirstOperand = result;
 
         }
 
         private void ChangeSign(object sender, RoutedEventArgs e)
         {
+            if (operationExecutor.State == ExecutorState.ResultCalculated  ||
+                operationExecutor.State == ExecutorState.Error)
+            {
+                inputValidator.ClearInput();
+                SetSecondaryOutput("");
+                operationExecutor.Clear();
+            }
             SetMainOutput(inputValidator.ChangeSign());
         }
 
@@ -143,7 +165,8 @@ namespace CalculatorWPF
 
         private void ClearInput(object sender, RoutedEventArgs e)
         {
-            if (operationExecutor.State == ExecutorState.ResultCalculated)
+            if (operationExecutor.State == ExecutorState.ResultCalculated ||
+                operationExecutor.State == ExecutorState.Error)
             {
                 ClearAll(sender, e);
                 return;
@@ -153,7 +176,8 @@ namespace CalculatorWPF
 
         private void RemoveCharacter(object sender, RoutedEventArgs e)
         {
-            if (operationExecutor.State == ExecutorState.ResultCalculated)
+            if (operationExecutor.State == ExecutorState.ResultCalculated ||
+                operationExecutor.State == ExecutorState.Error)
             {
                 ClearAll(sender, e);
                 return;
@@ -200,6 +224,10 @@ namespace CalculatorWPF
             }
             else if (buttonText == "MS")
             {
+                if (operationExecutor.State == ExecutorState.Error)
+                {
+                    return;
+                }
                 SetMemoryIndicator(true);
                 memory.Value = inputValidator.getInput();
             }
@@ -214,7 +242,8 @@ namespace CalculatorWPF
                 SetMainOutput(memoryValue);
                 inputValidator.Value = memoryValue;
 
-                if (operationExecutor.State == ExecutorState.ResultCalculated)
+                if (operationExecutor.State == ExecutorState.ResultCalculated ||
+                    operationExecutor.State == ExecutorState.Error)
                 {
                     SetSecondaryOutput("");
                 }
@@ -242,6 +271,11 @@ namespace CalculatorWPF
         {
             string buttonText = (sender as Button).Content.ToString();
             OperatorType operation = InputValidator.ConvertToOperatorType(buttonText);
+
+            if (operationExecutor.State == ExecutorState.Error)
+            {
+                return;
+            }
 
             if (operationExecutor.State == ExecutorState.SecondOperandInput)
             {

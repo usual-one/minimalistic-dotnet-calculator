@@ -10,9 +10,9 @@ public class OutputFormatter
     }
     private string BeautifyNumber(double number)
     {
-        if ((int) number == number)
+        if ((int)number == number)
         {
-            number = (int) number;
+            number = (int)number;
         }
 
         return number.ToString(nfi);
@@ -20,7 +20,7 @@ public class OutputFormatter
 
     public string MakeMemory(double memory)
     {
-        return BeautifyNumber(memory); 
+        return BeautifyNumber(memory);
     }
 
     public string MakeResult(double result)
@@ -61,12 +61,17 @@ public class OutputFormatter
         {
             return output;
         }
-        
-        if (secondOperand != null) 
+
+        if (secondOperand != null)
         {
             output += BeautifyNumber((double)secondOperand);
         }
 
         return output;
+    }
+
+    public string PrintError()
+    {
+        return "Error";
     }
 }

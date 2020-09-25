@@ -70,10 +70,9 @@ public class InputValidator
         else if (operatorText == "√")
         {
             return OperatorType.SquareRoot;
-        } 
+        }
 
-        // TODO: make exception
-        throw new System.Exception();
+        throw new System.NotSupportedException("unknown operation type");
     }
 
     public double getInput()
@@ -132,7 +131,6 @@ public class InputValidator
             return Value;
         }
 
-        // TODO: make exception
-        throw new System.Exception();
+        throw new System.NotSupportedException("unknown input type");
     }
 }
