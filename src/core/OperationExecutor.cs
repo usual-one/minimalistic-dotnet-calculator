@@ -1,11 +1,26 @@
+/// <summary>
+/// Class that stores operands and operator, calculates value of expression.
+/// </summary>
 public class OperationExecutor
 {
+    /// <summary>
+    /// Arithmetic operator.
+    /// </summary>
     private OperatorType? operator_; 
 
+    /// <summary>
+    /// First operand.
+    /// </summary>
     public double? FirstOperand { get; set; }
 
+    /// <summary>
+    /// Second operand.
+    /// </summary>
     public double? SecondOperand { get; set; }
 
+    /// <summary>
+    /// Arithmetic operator property.
+    /// </summary>
     public OperatorType? Operator
     {
         get
@@ -19,21 +34,31 @@ public class OperationExecutor
         }
     } 
 
+    /// <summary>
+    /// Current state of class.
+    /// </summary>
     public ExecutorState State { get; set; }
 
+    /// <summary>
+    /// Constructor.
+    /// </summary>
     public OperationExecutor()
     {
         Clear();
     }
 
+    /// <summary>
+    /// Calculates result of applying operator to operands.
+    /// </summary>
+    /// <returns>Calculation result</returns>
+    /// <exception cref="System.NullReferenceException">Thrown in case of first operand being undefined</exception>
     public double? Calculate()
     {
         State = ExecutorState.ResultCalculated;
 
         if (FirstOperand == null)
         {
-            // TODO: throw exception
-            throw new System.Exception();
+            throw new System.NullReferenceException();
         }
 
         if (Operator == null)
@@ -55,6 +80,9 @@ public class OperationExecutor
         return MakeArithmeticCalculation();
     }
 
+    /// <summary>
+    /// Clears current class state.
+    /// </summary>
     public void Clear()
     {
         FirstOperand = null;
@@ -63,6 +91,9 @@ public class OperationExecutor
         State = ExecutorState.FirstOperandInput;
     }
 
+    /// <summary>
+    /// Clears last defined operand.
+    /// </summary>
     public void ClearLastOperand()
     {
         if (SecondOperand != null)
@@ -76,6 +107,11 @@ public class OperationExecutor
         }
     }
 
+    /// <summary>
+    /// Performs arithmetic calculation depending on operator.
+    /// </summary>
+    /// <returns>Calculation result</returns>
+    /// <exception cref="System.NotSupportedException">Thrown in case of operator is not recognized</exception>
     private double MakeArithmeticCalculation()
     {
         if (Operator == OperatorType.Addition)

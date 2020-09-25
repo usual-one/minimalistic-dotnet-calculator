@@ -1,6 +1,8 @@
 # .Net Build folders
 *bin/
 *obj/
+*packages/
 
 # Visual Studio
 .vs/
+log.txt

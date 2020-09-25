@@ -1,18 +1,7 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CalculatorWPF
 {
@@ -21,13 +10,29 @@ namespace CalculatorWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Member for storing and validation current input.
+        /// </summary>
         private InputValidator inputValidator;
 
+        /// <summary>
+        /// Member for storing memory value.
+        /// </summary>
         private Memory memory;
 
+        /// <summary>
+        /// Member for executing operations and storing operands, operator.
+        /// </summary>
         private OperationExecutor operationExecutor;
 
+        /// <summary>
+        /// Member for formatting output for main, secondary outputs.
+        /// </summary>
         private OutputFormatter outputFormatter;
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public MainWindow()
         {
             inputValidator = new InputValidator();
@@ -74,11 +79,17 @@ namespace CalculatorWPF
             this.btnSquareRoot.Click += new RoutedEventHandler(this.SetOperation);
         }
 
+        /// <summary>
+        /// Closes window. Exits application.
+        /// </summary>
         private void CloseWindow(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Sets windown into DragMove state.
+        /// </summary>
         private void DragMoveWindow(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -86,11 +97,18 @@ namespace CalculatorWPF
                 this.DragMove();
             }
         }
+
+        /// <summary>
+        /// Minimizes window.
+        /// </summary>
         private void MinimizeWindow(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Appends character depending on pressed button.
+        /// </summary>
         private void AppendCharacter(object sender, RoutedEventArgs e)
         {
             if (operationExecutor.State == ExecutorState.OperatorGot)
@@ -110,6 +128,9 @@ namespace CalculatorWPF
             SetMainOutput(newText);
         }
 
+        /// <summary>
+        /// Calculates result of inputted expression.
+        /// </summary>
         private void CalculateResult(object sender, RoutedEventArgs e)
         {
             if (operationExecutor.State == ExecutorState.Error)
@@ -144,6 +165,9 @@ namespace CalculatorWPF
 
         }
 
+        /// <summary>
+        /// Changes sign of current input.
+        /// </summary>
         private void ChangeSign(object sender, RoutedEventArgs e)
         {
             if (operationExecutor.State == ExecutorState.ResultCalculated  ||
@@ -156,6 +180,9 @@ namespace CalculatorWPF
             SetMainOutput(inputValidator.ChangeSign());
         }
 
+        /// <summary>
+        /// Sets app into default state.
+        /// </summary>
         private void ClearAll(object sender, RoutedEventArgs e)
         {
             operationExecutor.Clear();
@@ -163,6 +190,9 @@ namespace CalculatorWPF
             SetMainOutput(inputValidator.ClearInput());
         }
 
+        /// <summary>
+        /// Clears current input.
+        /// </summary>
         private void ClearInput(object sender, RoutedEventArgs e)
         {
             if (operationExecutor.State == ExecutorState.ResultCalculated ||
@@ -174,6 +204,9 @@ namespace CalculatorWPF
             SetMainOutput(inputValidator.ClearInput());
         }
 
+        /// <summary>
+        /// Removes one character from the right of current input.
+        /// </summary>
         private void RemoveCharacter(object sender, RoutedEventArgs e)
         {
             if (operationExecutor.State == ExecutorState.ResultCalculated ||
@@ -185,6 +218,10 @@ namespace CalculatorWPF
             SetMainOutput(inputValidator.ClearCharacter());
         }
 
+        /// <summary>
+        /// Sets main output label text to given.
+        /// </summary>
+        /// <param name="output">Text to set into main output label</param>
         private void SetMainOutput(string output)
         {
             if (output.Length <= 10)
@@ -195,13 +232,17 @@ namespace CalculatorWPF
             {
                 this.MainOutput.FontSize = 36;
             }
-            else if (output.Length <= 20)
+            else if (output.Length <= InputValidator.MaxInputLength)
             {
                 this.MainOutput.FontSize = 28;
             }
             this.MainOutput.Content = output;
         }
 
+        /// <summary>
+        /// Sets memory indicator state.
+        /// </summary>
+        /// <param name="state">Current memory state (full - true or empty - false)</param>
         private void SetMemoryIndicator(bool state)
         {
             if (state)
@@ -214,6 +255,9 @@ namespace CalculatorWPF
             }
         }
 
+        /// <summary>
+        /// Sets memory state depending on pressed button.
+        /// </summary>
         private void SetMemoryState(object sender, RoutedEventArgs e)
         {
             string buttonText = (sender as Button).Content.ToString();
@@ -250,6 +294,10 @@ namespace CalculatorWPF
             }
         }
 
+        /// <summary>
+        /// Sets secondary output label text to given.
+        /// </summary>
+        /// <param name="output">Text to set into secondary output label</param>
         private void SetSecondaryOutput(string output)
         {
             if (output.Length <= 20)
@@ -267,6 +315,9 @@ namespace CalculatorWPF
             this.SecondaryOutput.Content = output;
         }
 
+        /// <summary>
+        /// Sets operator depending on pressed button.
+        /// </summary>
         private void SetOperation(object sender, RoutedEventArgs e)
         {
             string buttonText = (sender as Button).Content.ToString();
