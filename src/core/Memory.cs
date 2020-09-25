@@ -1,18 +1,6 @@
 public class Memory
 {
-    private double? value_;
-
-    public double? Value
-    {
-        get
-        {
-            return value_.Value;
-        }
-        set
-        {
-            value_ = value;
-        }
-    }
+    public double? Value { get; set; }
 
     public void Clear()
     {
@@ -21,6 +9,6 @@ public class Memory
 
     public bool IsEmpty()
     {
-        return !value_.HasValue;
+        return !Value.HasValue;
     }
 }

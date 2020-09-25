@@ -1,36 +1,10 @@
 public class OperationExecutor
 {
-    private double? firstOperand;
-    
-    private double? secondOperand;
-
     private OperatorType? operator_; 
 
-    private ExecutorState state;
+    public double? FirstOperand { get; set; }
 
-    public double? FirstOperand
-    {
-        get
-        {
-            return firstOperand;
-        }
-        set
-        {
-            firstOperand = value; 
-        }
-    }
-
-    public double? SecondOperand
-    {
-        get
-        {
-            return secondOperand;
-        }
-        set
-        {
-            secondOperand = value; 
-        }
-    }
+    public double? SecondOperand { get; set; }
 
     public OperatorType? Operator
     {
@@ -45,17 +19,7 @@ public class OperationExecutor
         }
     } 
 
-    public ExecutorState State
-    {
-        get
-        {
-            return state;
-        }
-        set
-        {
-            state = value;
-        }
-    }
+    public ExecutorState State { get; set; }
 
     public OperationExecutor()
     {
